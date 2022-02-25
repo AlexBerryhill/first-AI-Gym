@@ -26,4 +26,9 @@ from rl.memory import SequentialMemory
 def build_agent(model, actions):
     policy = BoltzmannQPolicy()
     memory = SequentialMemory(limit=50000, window_length=1)
-    dqn = DQNAgent(model=model, memory=memory, policy=policy)
+    dqn = DQNAgent(model=model, memory=memory, policy=policy, 
+    nb)
+    del model
+    model = build_model(states, actions)
+    dqn = build_agent(model, actions)
+    dqn.compile()
